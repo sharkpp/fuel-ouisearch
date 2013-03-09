@@ -1,0 +1,33 @@
+---
+- 
+  id: 1
+  oui: 00-00-00
+  organization: HOGE CORPORATION
+- 
+  id: 2
+  oui: 00-00-01
+  organization: HOGE CORPORATION
+- 
+  id: 3
+  oui: 00-00-02
+  organization: HOGE CORPORATION
+- 
+  id: 4
+  oui: 00-00-03
+  organization: HOGE CORPORATION
+- 
+  id: 5
+  oui: 00-00-04
+  organization: FUGA CORPORATION
+- 
+  id: 6
+  oui: 00-01-04
+  organization: FUGA CORPORATION
+- 
+  id: 7
+  oui: FF-FF-FF
+  organization: FOO CORPORATION OF JAPAN
+- 
+  id: 8
+  oui: FF-01-FF
+  organization: XXX
