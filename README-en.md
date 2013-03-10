@@ -3,6 +3,15 @@ Fuel OUI search package
 
 [![Build Status](https://travis-ci.org/sharkpp/fuel-ouisearch.png?branch=master)](https://travis-ci.org/sharkpp/fuel-ouisearch)
 
+What is this?
+-------------
+
+This package performs acquisition of a systematic name, or its contrary
+from OUI(Organizationally Unique Identifier) using the list of OUI currently exhibited
+by [IEEE-SA - Registration Authority OUI Public Listing](http://standards.ieee.org/develop/regauth/oui/public.html). 
+
+Whom does it really gain?
+
 Requirement
 --------
 

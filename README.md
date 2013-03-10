@@ -3,6 +3,14 @@ Fuel OUI search パッケージ
 
 [![Build Status](https://travis-ci.org/sharkpp/fuel-ouisearch.png?branch=master)](https://travis-ci.org/sharkpp/fuel-ouisearch)
 
+これはなに？
+------------
+
+このパッケージは[IEEE-SA - Registration Authority OUI Public Listing](http://standards.ieee.org/develop/regauth/oui/public.html)で
+公開されているOUI(Organizationally Unique Identifier)のリストを使いOUIから組織名の取得、あるいは、その逆を行います。
+
+いやほんと誰得なんだろうか？
+
 要件
 ----
 
