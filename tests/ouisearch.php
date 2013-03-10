@@ -248,7 +248,7 @@ class Tests_OuiSearch extends \TestCase
 		$this->assertEquals(array(), $test);
 
 		$test = OuiSearch::search_organization('HOGE CORPORATION');
-		$this->assertFalse($test);
+		$this->assertEquals(array(), $test);
 	}
 
 	/**
