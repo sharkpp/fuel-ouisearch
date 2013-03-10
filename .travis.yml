@@ -12,7 +12,7 @@ before_install:
   - git clone --recursive git://github.com/fuel/fuel.git "$HOME/fuelphp"
 
 before_script:
-  - ln -sf "`pwd`" "$HOME/fuelphp/fuel/packages"
+  - ln -sf "`pwd`" "$HOME/fuelphp/fuel/packages/ouisearch"
   - echo "<?php return array("                                                             > "$HOME/fuelphp/fuel/app/config/config.php"
   - echo "    'security' => array('uri_filter' => array('htmlentities'),"                  >>"$HOME/fuelphp/fuel/app/config/config.php"
   - echo "                        'output_filter' => array('Security::htmlentities'),"     >>"$HOME/fuelphp/fuel/app/config/config.php"
