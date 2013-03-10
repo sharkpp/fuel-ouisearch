@@ -1,0 +1,21 @@
+branches:
+  only:
+    - 'master'
+
+language: php
+
+php:
+  - 5.3
+  - 5.4
+
+before_install:
+  - git clone --recursive git://github.com/fuel/fuel.git "./fuelphp"
+
+before_script:
+  - ln -sf `pwd` ../../fuelphp/fuel/packages
+  - echo "<?php return array('package_paths'=>array(PKGPATH),'always_load'=>array('packages'=>array('ouisearch')));" > ../../fuelphp/fuel/app/config/config.php
+  - mysql -e 'create database fuel_test;'
+
+script:
+  - phpunit -c ../../fuelphp/fuel/core/phpunit.xml --group=OuiSearchPackage --coverage-text
+
