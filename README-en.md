@@ -1,6 +1,8 @@
 Fuel OUI search package
 =======================
 
+[![Build Status](https://travis-ci.org/sharkpp/fuel-ouisearch.png?branch=master)](https://travis-ci.org/sharkpp/fuel-ouisearch)
+
 Requirement
 --------
 

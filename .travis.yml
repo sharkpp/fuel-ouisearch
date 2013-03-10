@@ -13,8 +13,21 @@ before_install:
 
 before_script:
   - ln -sf "`pwd`" "$HOME/fuelphp/fuel/packages"
-  - echo "<?php return array('package_paths'=>array(PKGPATH),'always_load'=>array('packages'=>array('ouisearch')));" > "$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "<?php return array('default'=>array('connection'=>array('dsn'=>'mysql:host=localhost;dbname=fuel_test','username'=>'root','password'=>'',),),);" > "$HOME/fuelphp/fuel/app/config/test/db.php"
+  - echo "<?php return array("                                                             > "$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "    'security' => array('uri_filter' => array('htmlentities'),"                  >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "                        'output_filter' => array('Security::htmlentities'),"     >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "                        'whitelisted_classes' => array('Fuel\\Core\\Response',"  >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "                                                       'Fuel\\Core\\View',"      >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "                                                       'Fuel\\Core\\ViewModel'," >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "                                                       'Closure')),"             >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "    'package_paths' => array(PKGPATH),"                                          >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "    'always_load' => array('packages' => array('ouisearch'))"                    >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "  );"                                                                            >>"$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "<?php return array('default' => array('connection' => array("                    > "$HOME/fuelphp/fuel/app/config/test/db.php"
+  - echo "    'dsn'      => 'mysql:host=localhost;dbname=fuel_test',"                      >>"$HOME/fuelphp/fuel/app/config/test/db.php"
+  - echo "    'username' => 'root',"                                                       >>"$HOME/fuelphp/fuel/app/config/test/db.php"
+  - echo "    'password' => '',"                                                           >>"$HOME/fuelphp/fuel/app/config/test/db.php"
+  - echo "  )));"                                                                          >>"$HOME/fuelphp/fuel/app/config/test/db.php"
   - mysql -e 'create database fuel_test;'
 
 script:
