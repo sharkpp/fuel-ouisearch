@@ -9,13 +9,14 @@ php:
   - 5.4
 
 before_install:
-  - git clone --recursive git://github.com/fuel/fuel.git "./fuelphp"
+  - git clone --recursive git://github.com/fuel/fuel.git "$HOME/fuelphp"
 
 before_script:
-  - ln -sf `pwd` ../../fuelphp/fuel/packages
-  - echo "<?php return array('package_paths'=>array(PKGPATH),'always_load'=>array('packages'=>array('ouisearch')));" > ../../fuelphp/fuel/app/config/config.php
+  - ln -sf "`pwd`" "$HOME/fuelphp/fuel/packages"
+  - echo "<?php return array('package_paths'=>array(PKGPATH),'always_load'=>array('packages'=>array('ouisearch')));" > "$HOME/fuelphp/fuel/app/config/config.php"
+  - echo "<?php return array('default'=>array('connection'=>array('dsn'=>'mysql:host=localhost;dbname=fuel_test','username'=>'root','password'=>'',),),);" > "$HOME/fuelphp/fuel/app/config/test/db.php"
   - mysql -e 'create database fuel_test;'
 
 script:
-  - phpunit -c ../../fuelphp/fuel/core/phpunit.xml --group=OuiSearchPackage --coverage-text
+  - phpunit -c "$HOME/fuelphp/fuel/core/phpunit.xml" --group=OuiSearchPackage --coverage-text
 
