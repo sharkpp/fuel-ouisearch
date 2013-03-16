@@ -8,26 +8,19 @@ php:
   - 5.3
   - 5.4
 
+env:
+  - BRANCHES=master
+  - BRANCHES=1.5/master
+  - BRANCHES=1.4/master
+  - BRANCHES=1.3/master
+
 before_install:
-  - git clone --recursive git://github.com/fuel/fuel.git "$HOME/fuelphp"
+  - git clone --recursive --quiet --branch=$BRANCHES git://github.com/fuel/fuel.git "$HOME/fuelphp"
 
 before_script:
   - ln -sf "`pwd`" "$HOME/fuelphp/fuel/packages/ouisearch"
-  - echo "<?php return array("                                                             > "$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "    'security' => array('uri_filter' => array('htmlentities'),"                  >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "                        'output_filter' => array('Security::htmlentities'),"     >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "                        'whitelisted_classes' => array('Fuel\\Core\\Response',"  >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "                                                       'Fuel\\Core\\View',"      >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "                                                       'Fuel\\Core\\ViewModel'," >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "                                                       'Closure')),"             >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "    'package_paths' => array(PKGPATH),"                                          >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "    'always_load' => array('packages' => array('ouisearch'))"                    >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "  );"                                                                            >>"$HOME/fuelphp/fuel/app/config/config.php"
-  - echo "<?php return array('default' => array('connection' => array("                    > "$HOME/fuelphp/fuel/app/config/test/db.php"
-  - echo "    'dsn'      => 'mysql:host=localhost;dbname=fuel_test',"                      >>"$HOME/fuelphp/fuel/app/config/test/db.php"
-  - echo "    'username' => 'root',"                                                       >>"$HOME/fuelphp/fuel/app/config/test/db.php"
-  - echo "    'password' => '',"                                                           >>"$HOME/fuelphp/fuel/app/config/test/db.php"
-  - echo "  )));"                                                                          >>"$HOME/fuelphp/fuel/app/config/test/db.php"
+  - cp -f "`pwd`/tests/travis-ci/config.php"  "$HOME/fuelphp/fuel/app/config/"
+  - cp -f "`pwd`/tests/travis-ci/test/db.php" "$HOME/fuelphp/fuel/app/test/"
   - mysql -e 'create database fuel_test;'
 
 script:
