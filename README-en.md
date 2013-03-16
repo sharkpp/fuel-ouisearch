@@ -15,7 +15,7 @@ Whom does it really gain?
 Requirement
 --------
 
-* FuelPHP 1.5 or later
+* FuelPHP 1.4 or later
 * Need [oui.txt](http://standards.ieee.org/develop/regauth/oui/oui.txt) for data registration.
 
 Install

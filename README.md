@@ -14,7 +14,7 @@ Fuel OUI search パッケージ
 要件
 ----
 
-* FuelPHP 1.5 以降
+* FuelPHP 1.4 以降
 * データの登録のために [oui.txt](http://standards.ieee.org/develop/regauth/oui/oui.txt) が必要です。
 
 インストール
