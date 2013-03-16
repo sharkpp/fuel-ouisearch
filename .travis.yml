@@ -9,7 +9,6 @@ php:
   - 5.4
 
 env:
-  - BRANCHES=master
   - BRANCHES=1.5/master
   - BRANCHES=1.4/master
   - BRANCHES=1.3/master
@@ -20,7 +19,7 @@ before_install:
 before_script:
   - ln -sf "`pwd`" "$HOME/fuelphp/fuel/packages/ouisearch"
   - cp -f "`pwd`/tests/travis-ci/config.php"  "$HOME/fuelphp/fuel/app/config/"
-  - cp -f "`pwd`/tests/travis-ci/test/db.php" "$HOME/fuelphp/fuel/app/test/"
+  - cp -f "`pwd`/tests/travis-ci/test/db.php" "$HOME/fuelphp/fuel/app/config/test/"
   - mysql -e 'create database fuel_test;'
 
 script:
